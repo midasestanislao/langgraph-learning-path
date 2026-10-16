@@ -1,7 +1,7 @@
 [project]
 name = "langgraph-learning-path"
 version = "0.1.0"
-description = "Ruta de aprendizaje de LangGraph en español: ejercicios progresivos desde el primer grafo hasta un deep research agent multiagente."
+description = "A step-by-step LangGraph learning path, in English and Spanish: from the first graph to a multi-agent deep research system."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.12"

@@ -1,67 +1,70 @@
+<p align="right">🇬🇧 English · <a href="README.es.md">🇪🇸 Español</a></p>
+
 # LangGraph learning path
 
-Ruta de aprendizaje de [LangGraph](https://github.com/langchain-ai/langgraph) en español, de cero a un agente de investigación multiagente.
-Cada ejercicio introduce **un solo concepto nuevo**, explicado en la cabecera del archivo, y se apoya en el anterior.
+A step-by-step path to learn [LangGraph](https://github.com/langchain-ai/langgraph), from the first graph to a multi-agent deep research system.
+Each exercise introduces **one new concept**, explained in the header of the file, and builds on the previous one.
 
-> **English:** a Spanish-language, exercise-by-exercise path to learn LangGraph, ending in a multi-agent deep research system. Every file starts with a docstring that explains the concepts it uses and what to build. The finished agent lives in its own repository: [deep-research-agent](https://github.com/midasestanislao/deep-research-agent).
+The whole path is available in two languages, as two parallel folders with the same exercises: [`en/`](en/) (English) and [`es/`](es/) (Spanish). The finished agent lives in its own repository: [deep-research-agent](https://github.com/midasestanislao/deep-research-agent).
 
 ![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)
 ![LangGraph 1.x](https://img.shields.io/badge/LangGraph-1.x-1C3C3C)
-![Idioma: español](https://img.shields.io/badge/idioma-espa%C3%B1ol-yellow)
+![Languages: EN · ES](https://img.shields.io/badge/languages-EN%20%C2%B7%20ES-yellow)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-## La ruta
+## The path
 
 ```text
-01 grafos ─► 02 chatbots ─► 03 tools y memoria ─► 04 mensajes ─► 05 jev ─► 07 deep research
-   │             │               │                    │              │           │
- StateGraph    1 nodo +        @tool, ToolNode,     qué es un      decisión   Command, think_tool,
- nodos, edges, LLM (nube       búsqueda web,        mensaje,       con un     subgrafos, async,
- bucles con    y local)        checkpointer         tool_calls,    SDK        supervisor → agente
- condiciones                                        reducers,                 completo
-                                                    structured output
+01 graphs ─► 02 chatbots ─► 03 tools & memory ─► 04 messages ─► 05 jev ─► 07 deep research
+   │             │               │                   │              │           │
+ StateGraph,   1 node +        @tool, ToolNode,    what a         decision   Command, think_tool,
+ nodes, edges, an LLM (cloud   web search,         message is,    made by    subgraphs, async,
+ conditional   and local)      checkpointer        tool_calls,    an SDK     supervisor → full agent
+ loops                                             reducers,
+                                                   structured output
 ```
 
-| Carpeta | Qué se aprende | Archivos | ¿Usa LLM? |
+| Folder | What you learn | Files | Uses an LLM? |
 |---|---|---|---|
-| `01_grafos/` | Fundamentos de `StateGraph`: estado, nodos, edges y bucles con `conditional_edges` | `Hello_World`, `Ejercicio_1`–`6` | No |
-| `02_chatbots/` | Un grafo de un nodo que llama a un LLM: OpenRouter (`Agent_Bot`) y modelos locales con LM Studio (`local_agent`, `bonsai_agent`) | 3 scripts | Sí |
-| `03_tools_y_memoria/` | Agentes con herramientas: `@tool` + `ToolNode`, búsqueda web con DDGS, memoria entre turnos con `InMemorySaver` | `Ejercicio_7`–`9` | Sí |
-| `04_mensajes/` | Qué es un mensaje y cómo se usa: historial, `tool_calls` y `ToolMessage` a mano, `filter_messages`, reducers, helpers frente a tools, structured output, un mini chat | `M01`–`M08` | Algunos |
-| `05_jev/` | Un grafo donde la decisión la toma un SDK tipado (`typesafe_sdk`, `Choice`) | `lowerHigher` | Sí |
-| `07_deep_research/` | Las piezas del agente final, una por ejercicio: `Command` (10–11), `think_tool` y límites (12), clases Pydantic como herramientas (13), un grafo dentro de otro (14), `async`/`gather` (15), un supervisor de juguete (16); y las fases reales `agent_Fase1_*` (scoping) y `agent_Fase2_*` (investigador), que `deep_research.py` une | 27 scripts | Casi todos |
+| `01_graphs/` | `StateGraph` fundamentals: state, nodes, edges and loops with `conditional_edges` | `Hello_World`, `Exercise_1`–`6` | No |
+| `02_chatbots/` | A one-node graph that calls an LLM: OpenRouter (`Agent_Bot`) and local models through LM Studio (`local_agent`, `bonsai_agent`) | 3 scripts | Yes |
+| `03_tools_and_memory/` | Agents with tools: `@tool` + `ToolNode`, web search with DDGS, memory across turns with `InMemorySaver` | `Exercise_7`–`9` | Yes |
+| `04_messages/` | What a message is and how it is used: history, `tool_calls` and `ToolMessage` by hand, `filter_messages`, reducers, helpers vs. tools, structured output, a mini chat | `M01`–`M08` | Some |
+| `05_jev/` | A graph where the decision is made by a typed SDK (`typesafe_sdk`, `Choice`) | `lowerHigher` | Yes |
+| `07_deep_research/` | The pieces of the final agent, one per exercise: `Command` (10–11), `think_tool` and limits (12), Pydantic classes as tools (13), a graph inside another graph (14), `async`/`gather` (15), a toy supervisor (16); plus the real phases `agent_phase1_*` (scoping) and `agent_phase2_*` (researcher), which `deep_research.py` joins together | 27 scripts | Most |
 
-## Formato de los ejercicios
+## Exercise format
 
-A partir del Ejercicio 10, cada concepto viene en pareja:
+From Exercise 10 on, every concept comes as a pair:
 
-- **`Ejercicio_N_0_<tema>.py`**: ejemplo resuelto y comentado, con la salida esperada.
-- **`Ejercicio_N_1_<tema>.py`** (y `_2`, `_3`…): subejercicio para hacer uno mismo. Solo trae la cabecera: `CONCEPTOS` (lo nuevo, con su sintaxis mínima) y `ENUNCIADO` (qué construir, diagrama, pistas, salida esperada y una pregunta "para pensar").
+- **`Exercise_N_0_<topic>.py`**: a solved, commented example with its expected output.
+- **`Exercise_N_1_<topic>.py`** (and `_2`, `_3`…): a sub-exercise to do yourself. It only contains the header: `CONCEPTS` (what is new, with the minimal syntax) and `EXERCISE` (what to build, diagram, hints, expected output and a "think about it" question).
 
-La serie `M01`–`M08` de `04_mensajes/` usa otro formato: huecos `TODO` numerados y comprobaciones automáticas al final del archivo (`assert`), que indican qué `TODO` falla.
+The `M01`–`M08` series in `04_messages/` uses a different format: numbered `TODO` gaps and automatic checks (`assert`) at the end of the file that tell you which `TODO` fails.
 
-Los archivos de `07_deep_research/` conservan las explicaciones con las que se construyó cada parte; la versión limpia y en inglés del agente está en [deep-research-agent](https://github.com/midasestanislao/deep-research-agent).
+The files in `07_deep_research/` keep the explanations with which each part was built; the clean version of the agent is in [deep-research-agent](https://github.com/midasestanislao/deep-research-agent).
 
-## Cómo ejecutar
+## How to run
 
-Requisitos: Python 3.12+, [uv](https://docs.astral.sh/uv/) y una clave de [OpenRouter](https://openrouter.ai) para los ejercicios que usan LLM.
+Requirements: Python 3.12+, [uv](https://docs.astral.sh/uv/) and an [OpenRouter](https://openrouter.ai) API key for the exercises that use an LLM.
 
 ```bash
 git clone https://github.com/midasestanislao/langgraph-learning-path.git
 cd langgraph-learning-path
 uv sync
 
-cp .env.example .env        # y pon tu OPENROUTER_API_KEY
-uv run python 01_grafos/Hello_World.py
+cp .env.example .env        # then put your OPENROUTER_API_KEY in .env
+uv run python en/01_graphs/Hello_World.py      # English version
+uv run python es/01_grafos/Hello_World.py      # Spanish version
 ```
 
-Cada archivo indica en su cabecera cómo ejecutarlo, siempre desde la raíz del repositorio. Los chatbots locales de `02_chatbots/` necesitan [LM Studio](https://lmstudio.ai) en `http://localhost:1234/v1` (las variables `LMSTUDIO_*` de `.env.example` tienen valores por defecto).
+Every file says in its header how to run it, always from the repository root. The local chatbots in `02_chatbots/` need [LM Studio](https://lmstudio.ai) at `http://localhost:1234/v1` (the `LMSTUDIO_*` variables in `.env.example` have defaults).
 
-## Referencias
+## References
 
-- [LangGraph](https://langchain-ai.github.io/langgraph/) y [LangChain](https://python.langchain.com/).
-- La arquitectura del agente final sigue el tutorial [`deep_research_from_scratch`](https://github.com/langchain-ai/deep_research_from_scratch) de LangChain.
+- [LangGraph](https://langchain-ai.github.io/langgraph/) and [LangChain](https://python.langchain.com/).
+- The architecture of the final agent follows the [`deep_research_from_scratch`](https://github.com/langchain-ai/deep_research_from_scratch) tutorial by LangChain.
 
-## Licencia
+## License
 
 [MIT](LICENSE)
