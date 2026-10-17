@@ -33,6 +33,23 @@ The whole path is available in two languages, as two parallel folders with the s
 | `05_jev/` | A graph where the decision is made by a typed SDK (`typesafe_sdk`, `Choice`) | `lowerHigher` | Yes |
 | `07_deep_research/` | The pieces of the final agent, one per exercise: `Command` (10–11), `think_tool` and limits (12), Pydantic classes as tools (13), a graph inside another graph (14), `async`/`gather` (15), a toy supervisor (16); plus the real phases `agent_phase1_*` (scoping) and `agent_phase2_*` (researcher), which `deep_research.py` joins together | 27 scripts | Most |
 
+## Skills demonstrated
+
+| Skill | Where it is practiced |
+|---|---|
+| State graphs: typed state, nodes, edges, conditional loops | `01_graphs/` |
+| Calling an LLM from a node, cloud (OpenRouter) and local (LM Studio) | `02_chatbots/` |
+| Tools with `@tool` + `ToolNode`, web search, memory with a checkpointer | `03_tools_and_memory/` |
+| Message types, `tool_calls` and `ToolMessage` by hand, `filter_messages`, reducers, helpers vs. tools, structured output | `04_messages/` (M01–M08) |
+| Decision-making delegated to a typed SDK | `05_jev/` |
+| `Command` routing and loops without conditional edges | `07_deep_research/` Exercises 10–11 |
+| Forced reflection (`think_tool`) and hard turn limits | Exercises 12.0–12.1 |
+| Pydantic classes as tools the LLM "fills in" | Exercises 13.0–13.2 |
+| A compiled graph invoked inside another graph's node | Exercises 14.0–14.1 |
+| Parallel workers with `asyncio.gather` and `ainvoke` | Exercises 15.0–15.1 |
+| Supervisor pattern: delegation, `ToolMessage` hand-back, rounds | Exercises 16.0–16.1 |
+| Scoping with structured output, researcher with compression, final report | `agent_phase1_*`, `agent_phase2_*`, `deep_research.py` |
+
 ## Exercise format
 
 From Exercise 10 on, every concept comes as a pair:

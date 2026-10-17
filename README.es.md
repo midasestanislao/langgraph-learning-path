@@ -33,6 +33,23 @@ La ruta completa está en dos idiomas, como dos carpetas paralelas con los mismo
 | `05_jev/` | Un grafo donde la decisión la toma un SDK tipado (`typesafe_sdk`, `Choice`) | `lowerHigher` | Sí |
 | `07_deep_research/` | Las piezas del agente final, una por ejercicio: `Command` (10–11), `think_tool` y límites (12), clases Pydantic como herramientas (13), un grafo dentro de otro (14), `async`/`gather` (15), un supervisor de juguete (16); y las fases reales `agent_Fase1_*` (scoping) y `agent_Fase2_*` (investigador), que `deep_research.py` une | 27 scripts | Casi todos |
 
+## Habilidades que se practican
+
+| Habilidad | Dónde se practica |
+|---|---|
+| Grafos de estado: estado tipado, nodos, edges, bucles condicionales | `01_grafos/` |
+| Llamar a un LLM desde un nodo, en la nube (OpenRouter) y en local (LM Studio) | `02_chatbots/` |
+| Herramientas con `@tool` + `ToolNode`, búsqueda web, memoria con checkpointer | `03_tools_y_memoria/` |
+| Tipos de mensaje, `tool_calls` y `ToolMessage` a mano, `filter_messages`, reducers, helpers frente a tools, structured output | `04_mensajes/` (M01–M08) |
+| Decisión delegada a un SDK tipado | `05_jev/` |
+| Enrutado y bucles con `Command`, sin edges condicionales | `07_deep_research/` Ejercicios 10–11 |
+| Reflexión forzada (`think_tool`) y límites duros de vueltas | Ejercicios 12.0–12.1 |
+| Clases Pydantic como herramientas que el LLM "rellena" | Ejercicios 13.0–13.2 |
+| Un grafo compilado invocado dentro del nodo de otro grafo | Ejercicios 14.0–14.1 |
+| Trabajadores en paralelo con `asyncio.gather` y `ainvoke` | Ejercicios 15.0–15.1 |
+| Patrón supervisor: delegación, devolución por `ToolMessage`, rondas | Ejercicios 16.0–16.1 |
+| Scoping con structured output, investigador con compresión, informe final | `agent_Fase1_*`, `agent_Fase2_*`, `deep_research.py` |
+
 ## Formato de los ejercicios
 
 A partir del Ejercicio 10, cada concepto viene en pareja:
